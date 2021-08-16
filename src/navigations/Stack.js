@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Home, List, Chat } from '../screens';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
 
 const Stack = createStackNavigator();
 const StackNav = () => {
@@ -18,12 +18,16 @@ const StackNav = () => {
         },
         headerTitleStyle: {
           fontSize: 24,
-          color: '#ffffff',
+          //   color: '#ffffff',
         },
         headerTitleAlign: 'center',
-        headerTitle: ({ style }) => {
-          return <FontAwesome5 name="react" style={style} />;
+        headerTitle: ({ style, tintColor }) => {
+          return <FontAwesome5 name="react" style={style} color={tintColor} />;
         },
+        headerBackTitle: 'Prev',
+        headerBackTitleVisible: true,
+        headerBackTitleStyle: { fontSize: 26 },
+        headerTintColor: '#ff6600',
       }}
     >
       <Stack.Screen
@@ -35,7 +39,19 @@ const StackNav = () => {
       <Stack.Screen
         name="Chat"
         component={Chat}
-        options={{ headerTitle: 'Chat Screen' }}
+        options={{
+          headerTitle: 'Chat Screen',
+          headerBackImage: ({ tintColor }) => {
+            return (
+              <MaterialCommunityIcons
+                name="keyboard-backspace"
+                size={26}
+                color={tintColor}
+                style={{ marginLeft: 5, marginRight: 5 }}
+              />
+            );
+          },
+        }}
       />
     </Stack.Navigator>
   );
