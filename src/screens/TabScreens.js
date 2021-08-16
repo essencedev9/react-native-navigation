@@ -5,10 +5,12 @@ const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
+  background-color: #0f56b3;
 `;
 
 const StyledText = styled.Text`
   font-size: 30px;
+  color: #ffffff;
 `;
 
 export const Mail = () => {
