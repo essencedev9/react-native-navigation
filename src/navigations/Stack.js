@@ -5,8 +5,15 @@ import { Home, List, Chat } from '../screens';
 const Stack = createStackNavigator();
 const StackNav = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
+    <Stack.Navigator
+      initialRouteName="Home"
+      screenOptions={{ cardStyle: { backgroundColor: '#ffffff' } }}
+    >
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{ cardStyle: { backgroundColor: '#ffffff' } }}
+      />
       <Stack.Screen name="List" component={List} />
       <Stack.Screen name="Chat" component={Chat} />
     </Stack.Navigator>
